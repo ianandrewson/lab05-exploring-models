@@ -52,9 +52,9 @@ describe('server route tests', () => {
             expect(res.body).toEqual({
               _id: expect.any(String),
               __v: 0,
-              manufacturer: 'Roland',
-              amps: 4,
-              oscillators: 3,
+              manufacturer: 'DSI',
+              amps: 2,
+              oscillators: 4,
               filters: 'LP',
               createdAt: expect.any(String),
               updatedAt: expect.any(String)
