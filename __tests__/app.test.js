@@ -1,5 +1,6 @@
 const app = require('../lib/app');
 const request = require('supertest');
+jest.setTimeout(10000);
 
 describe('server route tests', () => {
   it('has a home get route that says how rad the database is', () => {
@@ -104,7 +105,7 @@ describe('server route tests', () => {
           .then(res => {
             expect(res.body.length).toBeGreaterThanOrEqual(1);
           });
-      })
+      });
   });
 });
 
