@@ -62,5 +62,32 @@ describe('server route tests', () => {
           });
       });
   });
+  it('has a route that will delete a Synth by id', () => {
+    return request(app)
+      .post('/synths')
+      .send({
+        manufacturer: 'Moog',
+        amps: 1,
+        oscillators: 4,
+        filters: 'LP'
+      })
+      .then(res => {
+        const id = res.body._id;
+        return request(app)
+          .delete(`/synths/${id}`)
+          .then(res => {
+            expect(res.body).toEqual({
+              _id: expect.any(String),
+              __v: 0,
+              manufacturer: 'Moog',
+              amps: 1,
+              oscillators: 4,
+              filters: 'LP',
+              createdAt: expect.any(String),
+              updatedAt: expect.any(String)
+            });
+          });
+      });
+  });
 });
 
