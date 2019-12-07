@@ -1,3 +1,5 @@
+PR: https://github.com/ianandrewson/lab05-exploring-models/pull/1
+
 # LAB: Exploring Models
 
 Create an express application that uses your mongoose models. Implement

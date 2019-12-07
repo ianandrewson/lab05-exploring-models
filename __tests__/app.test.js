@@ -89,5 +89,22 @@ describe('server route tests', () => {
           });
       });
   });
+  it('should be able to get all synths in the database', () => {
+    return request(app)
+      .post('/synths')
+      .send({
+        manufacturer: 'Korg',
+        oscillators: 1,
+        filters: 'BP',
+        amps: 1
+      })
+      .then(() => {
+        return request(app)
+          .get('/synths')
+          .then(res => {
+            expect(res.body.length).toBeGreaterThanOrEqual(1);
+          });
+      })
+  });
 });
 
