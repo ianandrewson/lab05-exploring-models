@@ -20,10 +20,14 @@ describe('server route tests', () => {
       })
       .then(res => {
         expect(res.body).toEqual({
+          _id: expect.any(String),
+          __v: 0,
           manufacturer: 'Roland',
           amps: 4,
           oscillators: 3,
-          filters: 'LP'
+          filters: 'LP',
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String)
         });
       });
   });
