@@ -106,8 +106,7 @@ describe('server route tests', () => {
           .then(res => {
             expect(res.body.length).toBeGreaterThanOrEqual(1);
           });
-      })
-      .then(mongoose.close());
+      });
   });
 });
 
