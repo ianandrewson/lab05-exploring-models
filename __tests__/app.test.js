@@ -4,6 +4,7 @@ jest.setTimeout(10000);
 const mongoose = require('mongoose');
 
 describe('server route tests', () => {
+  afterAll(mongoose.close());
   it('has a home get route that says how rad the database is', () => {
     return request(app)
       .get('/')
