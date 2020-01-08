@@ -1,7 +1,8 @@
+require('dotenv').config();
 const app = require('../lib/app');
 const request = require('supertest');
 const mongoose = require('mongoose');
-const connect = require('../lib/utils/connect');
+const { connect } = require('../lib/utils/connect');
 jest.setTimeout(10000);
 
 describe('server route tests', () => {
