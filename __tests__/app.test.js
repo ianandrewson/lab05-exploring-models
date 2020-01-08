@@ -1,16 +1,23 @@
 const app = require('../lib/app');
 const request = require('supertest');
-jest.setTimeout(10000);
 const mongoose = require('mongoose');
-// const connect = require('../lib/utils/connect');
+const connect = require('../lib/utils/connect');
+jest.setTimeout(10000);
 
 describe('server route tests', () => {
+
+  beforeAll(() => {
+    connect();
+  });
+
   beforeEach(() => {
     return mongoose.connection.dropDatabase();
   });
+
   afterAll(() => {
     return mongoose.connection.close();
   });
+
   it('has a home get route that says how rad the database is', () => {
     return request(app)
       .get('/')
